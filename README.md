@@ -4,6 +4,9 @@
 
 ![整体流程图](https://user-gold-cdn.xitu.io/2019/1/28/16892894a56a9773?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
+实验通过参考 [grpc-web](https://github.com/grpc/grpc-web) 把后端 grpcServer由官网 node.js 实现 改写成 .net core 3 grpc 实现
+加入 grpc ServerSteam 模式 hello world 例子
+
 
 ## 环境
 * nodejs npm 主要前端编译库的需要
@@ -17,6 +20,8 @@
 ## 实验预期效果 
 * grpc-web clinet 一次请求 一次响应调用
 * grpc-web clinet ServerSteam 一次请求 Server 流式输出响应
+* [demo地址](http://111.231.144.245:8085/)
+ 
 
 ## 端点配置 部署环境
 
@@ -216,5 +221,5 @@ localhost:8081 {
 
 
 ## 最后
-当然是放上源码 github 
+当然是放上源码 [github ](https://github.com/sitsh/grpcWebDemo)
 
