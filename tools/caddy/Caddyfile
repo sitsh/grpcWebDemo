@@ -1,0 +1,4 @@
+localhost:8081 {
+	root ../../src/grpcWebClient
+
+}

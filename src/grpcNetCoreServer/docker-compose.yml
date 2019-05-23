@@ -1,0 +1,22 @@
+version: '3'
+services:
+  
+  netcore-server:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: helloworld/grpcnetcoredemo:0.0.1
+    ports:
+      - "9090:9090"
+  envoy:
+    build:
+      context: ./
+      dockerfile: ./envoy/Dockerfile
+    depends_on:
+      - netcore-server
+    image: helloworld/envoy
+    ports:
+      - "8080:8080"
+    links:
+      - netcore-server
+  

@@ -1,0 +1,11 @@
+docker build -t helloworld/grpcnetcoredemo -f Dockerfile .
+
+
+docker run -d -p 9090:9090 helloworld/grpcnetcoredemo
+
+
+docker-compose up -d netcore-server envoy
+
+
+
+docker tag helloworld/grpcnetcoredemo wilsonjw/grpcnetcoreserver:0.0.1
