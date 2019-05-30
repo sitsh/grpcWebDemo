@@ -10,11 +10,12 @@
 
 ## 更新
 * 更新docker-compose 文件 
-    1. 使用 volumes 挂载 yml 和证书 配置文件
+    1. 弃用dockerfile 构建image 直接使用 volumes 挂载 yml 和证书 配置文件
     2. 加入Envoy-TLS 节点测试 https端点配置
     3. 自定义networks 配置
     4. https://github.com/11os/grpc-mp 编译小程序需要的 pb 生成工具[for linux]
-
+    
+    
 ## 环境
 * nodejs npm 主要前端编译库的需要
 * .net core 3 sdk pv3
@@ -240,6 +241,7 @@ grpcWebClient 前端项目文件夹
 我这里没有mac 环境。所以自己在作者源码上编译了 linux 环境下的二进制文件
 测试pb 生成 可用。
 
+[二进制文件[linux]](https://github.com/sitsh/grpcWebDemo/releases/download/1.0/protoc-3.6.1.zip)
 
 ### .proto 自动生成 js文件
 首先需要把 netcore-server 端点中的 .proto 缓冲层协议文件 通过工具生成 xx-pb.js 文件
