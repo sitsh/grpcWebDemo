@@ -4,8 +4,12 @@ docker build -t helloworld/grpcnetcoredemo -f Dockerfile .
 docker run -d -p 9090:9090 helloworld/grpcnetcoredemo
 
 
-docker-compose up -d netcore-server envoy
+docker-compose up -d netcore-server envoy envoy-tls
 
+docker-compose down --remove-orphans
 
 
 docker tag helloworld/grpcnetcoredemo wilsonjw/grpcnetcoreserver:0.0.1
+
+
+docker exec -it b8ed9b7f9791 bash

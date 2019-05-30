@@ -1,15 +1,22 @@
-# grpc-web Envoy .net core3 grpcServer 
+ï»¿# grpc-web Envoy .net core3 grpcServer 
 
-## ¼ÇÂ¼ Ç°¶Ë js Í¨¹ı Envoy ·´´ú·şÎñÆ÷ µ÷ÓÃ .net core3 grpcServer ÊµÑé¹ı³Ì
+## è®°å½• å‰ç«¯ js é€šè¿‡ Envoy åä»£æœåŠ¡å™¨ è°ƒç”¨ .net core3 grpcServer å®éªŒè¿‡ç¨‹
 
-![ÕûÌåÁ÷³ÌÍ¼](https://user-gold-cdn.xitu.io/2019/1/28/16892894a56a9773?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![æ•´ä½“æµç¨‹å›¾](https://user-gold-cdn.xitu.io/2019/1/28/16892894a56a9773?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
-ÊµÑéÍ¨¹ı²Î¿¼ [grpc-web](https://github.com/grpc/grpc-web) °Ñºó¶Ë grpcServerÓÉ¹ÙÍø node.js ÊµÏÖ ¸ÄĞ´³É .net core 3 grpc ÊµÏÖ
-¼ÓÈë grpc ServerSteam Ä£Ê½ hello world Àı×Ó
+å®éªŒé€šè¿‡å‚è€ƒ [grpc-web](https://github.com/grpc/grpc-web) æŠŠåç«¯ grpcServerç”±å®˜ç½‘ node.js å®ç° æ”¹å†™æˆ .net core 3 grpc å®ç°
+åŠ å…¥ grpc ServerSteam æ¨¡å¼ hello world ä¾‹å­
 
 
-## »·¾³
-* nodejs npm Ö÷ÒªÇ°¶Ë±àÒë¿âµÄĞèÒª
+## æ›´æ–°
+* æ›´æ–°docker-compose æ–‡ä»¶ 
+    1. ä½¿ç”¨ volumes æŒ‚è½½ yml å’Œè¯ä¹¦ é…ç½®æ–‡ä»¶
+    2. åŠ å…¥Envoy-TLS èŠ‚ç‚¹æµ‹è¯• httpsç«¯ç‚¹é…ç½®
+    3. è‡ªå®šä¹‰networks é…ç½®
+    4. https://github.com/11os/grpc-mp ç¼–è¯‘å°ç¨‹åºéœ€è¦çš„ pb ç”Ÿæˆå·¥å…·[for linux]
+
+## ç¯å¢ƒ
+* nodejs npm ä¸»è¦å‰ç«¯ç¼–è¯‘åº“çš„éœ€è¦
 * .net core 3 sdk pv3
 * vs2019 pv
 * docker ubuntu18.04
@@ -17,27 +24,27 @@
 * chrome74
 
 
-## ÊµÑéÔ¤ÆÚĞ§¹û 
-* grpc-web clinet Ò»´ÎÇëÇó Ò»´ÎÏìÓ¦µ÷ÓÃ
-* grpc-web clinet ServerSteam Ò»´ÎÇëÇó Server Á÷Ê½Êä³öÏìÓ¦
-* [demoµØÖ·](http://111.231.144.245:8085/)
+## å®éªŒé¢„æœŸæ•ˆæœ 
+* grpc-web clinet ä¸€æ¬¡è¯·æ±‚ ä¸€æ¬¡å“åº”è°ƒç”¨
+* grpc-web clinet ServerSteam ä¸€æ¬¡è¯·æ±‚ Server æµå¼è¾“å‡ºå“åº”
+* [demoåœ°å€](http://111.231.144.245:8085/)
  
 
-## ¶ËµãÅäÖÃ ²¿Êğ»·¾³
+## ç«¯ç‚¹é…ç½® éƒ¨ç½²ç¯å¢ƒ
 
 
-| ¶Ëµã       | url            | ÃèÊö       |
+| ç«¯ç‚¹       | url            | æè¿°       |
 |----------|----------------|----------|
-| grpc-web | localhost:8081 | web Ç°¶ËÒ³Ãæ |
-| EnvoyServer    |loclhost:8080|·´´ú-docker ²¿Êğ           |
-| grpcServer netcore3|loclhost:9090| rpc½Ó¿Ú docker ²¿Êğ         |
+| grpc-web | localhost:8081 | web å‰ç«¯é¡µé¢ |
+| EnvoyServer    |loclhost:8080|åä»£-docker éƒ¨ç½²           |
+| grpcServer netcore3|loclhost:9090| rpcæ¥å£ docker éƒ¨ç½²         |
+| Envoy-TLS-Server netcore3|domain:443|   åä»£-docker éƒ¨ç½²       |
 
 
+### grpcServer ç«¯ç‚¹æ„å»º
 
-### grpcServer ¶Ëµã¹¹½¨
-
-Í¨¹ı vs2019 grpcÄ£°å  ´´½¨Ò»¸ögrpcServerÏîÄ¿
-Õâ¸öÄ£°å  ÒÑ¾­×Ô´øÁË¸ö¼òµ¥ helloworld rpc·½·¨ÁË ÎÒÃÇÕâÀï ¼òµ¥ĞŞ¸ÄÏÂ .proto »º³å²ã¶¨Òå ¼ÓÈëServerSteam rpc ·½·¨¶¨Òå
+é€šè¿‡ vs2019 grpcæ¨¡æ¿  åˆ›å»ºä¸€ä¸ªgrpcServeré¡¹ç›®
+è¿™ä¸ªæ¨¡æ¿  å·²ç»è‡ªå¸¦äº†ä¸ªç®€å• helloworld rpcæ–¹æ³•äº† æˆ‘ä»¬è¿™é‡Œ ç®€å•ä¿®æ”¹ä¸‹ .proto ç¼“å†²å±‚å®šä¹‰ åŠ å…¥ServerSteam rpc æ–¹æ³•å®šä¹‰
 
 ```csharp
 
@@ -69,7 +76,7 @@ message HelloReply {
 }
 ```
 
-2¸örpc ¶ËµãÊµÏÖ´úÂë
+2ä¸ªrpc ç«¯ç‚¹å®ç°ä»£ç 
 ```csharp
 public class GreeterService : Greeter.GreeterBase
     {
@@ -95,11 +102,11 @@ public class GreeterService : Greeter.GreeterBase
     }
 ```
 
-ÒòÎªÊÇ¼òµ¥ÑİÊ¾ Ã»ÓĞÉÏ tls Ö¤Êé ºÍ https
-ÏîÄ¿×îºó»áÒÔ dockerĞÎÊ½ ·¢²¼ ËùÒÔÕâÀïÎÒÃÇĞŞ¸ÄÁËÏÂÄ¬ÈÏ Kestrel ¶Ë¿Ú ¸ÄÎªÁË <u>**9090**</u>
+å› ä¸ºæ˜¯ç®€å•æ¼”ç¤º æ²¡æœ‰ä¸Š tls è¯ä¹¦ å’Œ https
+é¡¹ç›®æœ€åä¼šä»¥ dockerå½¢å¼ å‘å¸ƒ æ‰€ä»¥è¿™é‡Œæˆ‘ä»¬ä¿®æ”¹äº†ä¸‹é»˜è®¤ Kestrel ç«¯å£ æ”¹ä¸ºäº† <u>**9090**</u>
 
-vs ÖĞÌí¼ÓÏîÄ¿µÄ docker Ö§³Ö Ñ¡ linux Æ½Ì¨ºó vs »á°ïÄãÉú³É ÏîÄ¿²¿ÊğµÄ dockerfile
-ps: ÎÒÕâÀïvsÄ¬ÈÏÉú³É dockerfile build µÄÊ±ºò±¨´í ÌáÊ¾Â·¾¶²»¶Ô¡£Ã»ÓĞÉîÈëÑĞ¾¿ ¼òµ¥ĞŞ¸Ä dockerfile ÀïÃæµÄ Â·¾¶ ºó ¾Í¿ÉÒÔ±àÒëÁË
+vs ä¸­æ·»åŠ é¡¹ç›®çš„ docker æ”¯æŒ é€‰ linux å¹³å°å vs ä¼šå¸®ä½ ç”Ÿæˆ é¡¹ç›®éƒ¨ç½²çš„ dockerfile
+ps: æˆ‘è¿™é‡Œvsé»˜è®¤ç”Ÿæˆ dockerfile build çš„æ—¶å€™æŠ¥é”™ æç¤ºè·¯å¾„ä¸å¯¹ã€‚æ²¡æœ‰æ·±å…¥ç ”ç©¶ ç®€å•ä¿®æ”¹ dockerfile é‡Œé¢çš„ è·¯å¾„ å å°±å¯ä»¥ç¼–è¯‘äº†
 
 ```bash
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-buster-slim AS base
@@ -123,21 +130,21 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "grpcWebDemo.dll"]
 ```
 
-¿ÉÒÔÓÃÃüÁî ÊÔ×Å±àÒëÏÂÒ»ÏÂ ¸Õ¸ÕÉú³ÉµÄ dockerfile Èç¹ûÃ»ÓĞ±¨´í ¾Í¿ÉÒÔÁËÏÈ·Å×Å µÈ»á»áÓÃ 
-docker-compose °Ñ Envoy ºÍ netcore grpc ²¿ÊğÔÚÒ»¸ö docker Íø¶ÎÄÚ
+å¯ä»¥ç”¨å‘½ä»¤ è¯•ç€ç¼–è¯‘ä¸‹ä¸€ä¸‹ åˆšåˆšç”Ÿæˆçš„ dockerfile å¦‚æœæ²¡æœ‰æŠ¥é”™ å°±å¯ä»¥äº†å…ˆæ”¾ç€ ç­‰ä¼šä¼šç”¨ 
+docker-compose æŠŠ Envoy å’Œ netcore grpc éƒ¨ç½²åœ¨ä¸€ä¸ª docker ç½‘æ®µå†…
 
 > docker build -t helloworld/grpcnetcoredemo -f Dockerfile .
 
-### Envoy ²¿Êğ
-ÒòÎª Envoy ¹Ù·½Ã»ÓĞÌá¹© ¶ş½øÖÆµÄ °²×°°ü ÎÒÃÇÍ¨¹ı grpc-web ¹ÙÍøµÄ²¿ÊğÖ¸Òı °ÑEnvoy²¿ÊğÔÚ dockerÖĞ
+### Envoy éƒ¨ç½²
+å› ä¸º Envoy å®˜æ–¹æ²¡æœ‰æä¾› äºŒè¿›åˆ¶çš„ å®‰è£…åŒ… æˆ‘ä»¬é€šè¿‡ grpc-web å®˜ç½‘çš„éƒ¨ç½²æŒ‡å¼• æŠŠEnvoyéƒ¨ç½²åœ¨ dockerä¸­
 
-ÆäÖĞ  envoy.yaml ÊÇ Envoy Server µÄÅäÖÃÎÄ¼ş ÕâÀïÎÒÃÇĞèÒª µ÷ÕûÒ»ÏÂµÄÊÇ **ÉÏÓÎ**(netcore grpc api) ·şÎñÆ÷µØÖ·ÕâĞĞµÄÅäÖÃ ĞèÒª°´Äã×Ô¼ºµÄ»·¾³À´ĞŞ¸Ä-ÏÂÃæµÄÕâĞĞÅäÖÃ°´Äã »·¾³µÄÇø±ğ ÌîĞ´
+å…¶ä¸­  envoy.yaml æ˜¯ Envoy Server çš„é…ç½®æ–‡ä»¶ è¿™é‡Œæˆ‘ä»¬éœ€è¦ è°ƒæ•´ä¸€ä¸‹çš„æ˜¯ **ä¸Šæ¸¸**(netcore grpc api) æœåŠ¡å™¨åœ°å€è¿™è¡Œçš„é…ç½® éœ€è¦æŒ‰ä½ è‡ªå·±çš„ç¯å¢ƒæ¥ä¿®æ”¹-ä¸‹é¢çš„è¿™è¡Œé…ç½®æŒ‰ä½  ç¯å¢ƒçš„åŒºåˆ« å¡«å†™
 
 >    hosts: [{ socket_address: { address: netcore-server, port_value: 9090 }}]
 
-ÎÒÃÇÕâÀïÊ¹ÓÃ ¡®netcore-server¡¯ ÏÂÃæÒªËµµ½µÄ docker-compose ÖĞµÄ ÈİÆ÷Ãû³ÆÀ´Ìæ´úÊµ¼ÊµØÖ·
+æˆ‘ä»¬è¿™é‡Œä½¿ç”¨ â€˜netcore-serverâ€™ ä¸‹é¢è¦è¯´åˆ°çš„ docker-compose ä¸­çš„ å®¹å™¨åç§°æ¥æ›¿ä»£å®é™…åœ°å€
 
-docker-compose.yml ÅäÖÃÈçÏÂ
+docker-compose.yml é…ç½®å¦‚ä¸‹
 
 ```bash
 version: '3'
@@ -163,54 +170,106 @@ services:
       - netcore-server
 ```
 
-Èç¹ûÉÏÃæµÄ ÅäÖÃ ¶¼Ã»´íÍ¨¹ı Ö´ĞĞ
+å¦‚æœä¸Šé¢çš„ é…ç½® éƒ½æ²¡é”™é€šè¿‡ æ‰§è¡Œ
 > docker-compose up -d netcore-server envoy 
 
-¾ÍÄÜ°Ñ 2 ¸ö ÈİÆ÷ À­ÆğÀ´ÁË¡£ ¶Ë¿Ú ·Ö±ğÊÇ 8080 ºÍ 9090 2¸ödocker ÈİÆ÷ 
-µ½ÕâÀï ·şÎñ¶ËµÄ envoy ·´´ú ºÍ grpc netcore-server  ÒÑ¾­·Ö±ğ²¿ÊğºÃÁË
+å°±èƒ½æŠŠ 2 ä¸ª å®¹å™¨ æ‹‰èµ·æ¥äº†ã€‚ ç«¯å£ åˆ†åˆ«æ˜¯ 8080 å’Œ 9090 2ä¸ªdocker å®¹å™¨ 
+åˆ°è¿™é‡Œ æœåŠ¡ç«¯çš„ envoy åä»£ å’Œ grpc netcore-server  å·²ç»åˆ†åˆ«éƒ¨ç½²å¥½äº†
 
 
-**ÔÚ½øĞĞ Ç°¶Ëgrpc-web Ö®Ç° ½¨ÒéÏÈ²âÊÔÏÂ 2¸öÈİÆ÷**
+**åœ¨è¿›è¡Œ å‰ç«¯grpc-web ä¹‹å‰ å»ºè®®å…ˆæµ‹è¯•ä¸‹ 2ä¸ªå®¹å™¨**
 
-envoy ·´´ú ¾ÍĞèÒª¹Ø×¢ ÉÏÓÎ¶Ëµã ip  µØÖ·ÅäÖÃÕâÒ»ĞĞ¡£
-grpc netcore-server ÎÒÃÇÀ­Æğ 9090 Õâ¸öÈİÆ÷ºó ¿ÉÒÔÓÃc#µÄ grpc Clinet ´úÂëÖ±½Óµ÷ÓÃÏÂ¸Õ²ÅĞ´µÄ 2¸ögrpc ½Ó¿Ú
-¿´¿´ÊÇ·ñ³É¹¦¡£
+envoy åä»£ å°±éœ€è¦å…³æ³¨ ä¸Šæ¸¸ç«¯ç‚¹ ip  åœ°å€é…ç½®è¿™ä¸€è¡Œã€‚
+grpc netcore-server æˆ‘ä»¬æ‹‰èµ· 9090 è¿™ä¸ªå®¹å™¨å å¯ä»¥ç”¨c#çš„ grpc Clinet ä»£ç ç›´æ¥è°ƒç”¨ä¸‹åˆšæ‰å†™çš„ 2ä¸ªgrpc æ¥å£
+çœ‹çœ‹æ˜¯å¦æˆåŠŸã€‚
+
+### Envoy-TLS éƒ¨ç½²
+ä½¿ç”¨ acme.sh é€šè¿‡ letsencrypt ç”³è¯·è¯ä¹¦ è¿™é‡Œç•¥è¿‡å…·ä½“ç»†èŠ‚ã€‚
+
+éœ€è¦æ›´æ–°çš„ envoy.yml é…ç½®æ®µè½
+
+```yaml
+tls_context:
+        common_tls_context:
+          tls_certificates:
+            - certificate_chain:
+                filename: "/etc/letsencrypt/grpc.xxx.com.crt"
+              private_key:
+                filename: "/etc/letsencrypt/grpc.xxx.com.key"
+```
+
+è¯ä¹¦æ–‡ä»¶ç›®å½•æ˜¯é€šè¿‡ ä¹‹å‰ docker-compose æ–‡ä»¶ æŒ‚è½½çš„ç›®å½•
+
+```yaml
+envoy-tls:
+    
+    container_name: envoy-tls
+    hostname: envoy-tls
+    image: envoyproxy/envoy:latest
+    volumes:
+      - evnoy/envoy-tls.yaml:/etc/envoy/envoy.yaml
+      - evnoy/letsencrypt:/etc/letsencrypt
+    ports:
+      - "443:443"
+    networks:
+      main:
+        aliases:
+          - envoy-tls
+```
+
+## è¿è¡Œå‘å¸ƒ docker ç«¯ç‚¹
+
+```bash
+docker-compose up -d netcore-server envoy envoy-tls
+
+docker-compose down --remove-orphans
+```
+
+
 
 
 ## grpc-web
 
-grpcWebClient Ç°¶ËÏîÄ¿ÎÄ¼ş¼Ğ
+grpcWebClient å‰ç«¯é¡¹ç›®æ–‡ä»¶å¤¹
+
+## miniprogram å¾®ä¿¡å°ç¨‹åº
+
+ç»†èŠ‚å‚è€ƒ https://github.com/11os/grpc-mp 
+
+å› ä¸ºåº“çš„ä½œè€…å°±æä¾›äº† mac ç¯å¢ƒçš„ protoc å’Œ protoc-gen-grpc-web äºŒè¿›åˆ¶æ–‡ä»¶
+æˆ‘è¿™é‡Œæ²¡æœ‰mac ç¯å¢ƒã€‚æ‰€ä»¥è‡ªå·±åœ¨ä½œè€…æºç ä¸Šç¼–è¯‘äº† linux ç¯å¢ƒä¸‹çš„äºŒè¿›åˆ¶æ–‡ä»¶
+æµ‹è¯•pb ç”Ÿæˆ å¯ç”¨ã€‚
 
 
-### .proto ×Ô¶¯Éú³É jsÎÄ¼ş
-Ê×ÏÈĞèÒª°Ñ netcore-server ¶ËµãÖĞµÄ .proto »º³å²ãĞ­ÒéÎÄ¼ş Í¨¹ı¹¤¾ßÉú³É xx-pb.js ÎÄ¼ş
+### .proto è‡ªåŠ¨ç”Ÿæˆ jsæ–‡ä»¶
+é¦–å…ˆéœ€è¦æŠŠ netcore-server ç«¯ç‚¹ä¸­çš„ .proto ç¼“å†²å±‚åè®®æ–‡ä»¶ é€šè¿‡å·¥å…·ç”Ÿæˆ xx-pb.js æ–‡ä»¶
 
 * protoc [release](https://github.com/protocolbuffers/protobuf/releases)
 * protoc-gen-grpc-web [protoc plugin] [releases](https://github.com/grpc/grpc-web/releases)
 
-·Ö±ğ½âÑ¹ ÉÏÃæÕâ2¸ö¹¤¾ß£¬ÎÒÕâÀïÑ¡Ôñ°ÑËûÃÇ·ÅÔÚÍ¬Ò»Ä¿Â¼ÖĞ ·½Ãæshell½Å±¾Ö´ĞĞ ²¢·¢±ØĞë,Äã¿ÉÒÔ°´×Ô¼ºµÄÄ¿Â¼½á¹¹×ÔĞĞµ÷ÕûÃüÁî£¬
+åˆ†åˆ«è§£å‹ ä¸Šé¢è¿™2ä¸ªå·¥å…·ï¼Œæˆ‘è¿™é‡Œé€‰æ‹©æŠŠä»–ä»¬æ”¾åœ¨åŒä¸€ç›®å½•ä¸­ æ–¹é¢shellè„šæœ¬æ‰§è¡Œ å¹¶å‘å¿…é¡»,ä½ å¯ä»¥æŒ‰è‡ªå·±çš„ç›®å½•ç»“æ„è‡ªè¡Œè°ƒæ•´å‘½ä»¤ï¼Œ
 
 > protoc.exe helloworld.proto --plugin=protoc-gen-grpc-web=protoc-gen-grpc-web-1.0.4-windows-x86_64.exe  --js_out=import_style=commonjs:.   --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
 
-Í¨¹ıÖ´ĞĞÉÏÃæµÄÃüÁîºó µÃµ½ Õâ2¸öjs
+é€šè¿‡æ‰§è¡Œä¸Šé¢çš„å‘½ä»¤å å¾—åˆ° è¿™2ä¸ªjs
 1. helloworld_pb.js
 2. helloworld_grpc_web_pb.js
 
 
-### ±àÒë Ç°¶ËÏîÄ¿
+### ç¼–è¯‘ å‰ç«¯é¡¹ç›®
 ```bash
 $ npm install
 $ npx webpack client.js
 ```
 
-  ±àÒëºóµÃµ½ Êä³öµÄ 
+  ç¼–è¯‘åå¾—åˆ° è¾“å‡ºçš„ 
   > dist/main.js
 
-### Ê¹ÓÃ caddy webserver
+### ä½¿ç”¨ caddy webserver
 
-ÓĞºÜ¶à webserver ¿ÉÓÃ¡£¿´ÖØcaddy ¼òµ¥ÕâÀïÊ¹ÓÃ caddy À´ÅÜÇ°¶Ë
+æœ‰å¾ˆå¤š webserver å¯ç”¨ã€‚çœ‹é‡caddy ç®€å•è¿™é‡Œä½¿ç”¨ caddy æ¥è·‘å‰ç«¯
 
-Caddyfile ÅäÖÃ
+Caddyfile é…ç½®
 ```bash
 localhost:8081 {
 	root ../../src/grpcWebClient
@@ -220,6 +279,6 @@ localhost:8081 {
 
 
 
-## ×îºó
-µ±È»ÊÇ·ÅÉÏÔ´Âë [github ](https://github.com/sitsh/grpcWebDemo)
+## æœ€å
+å½“ç„¶æ˜¯æ”¾ä¸Šæºç  [github ](https://github.com/sitsh/grpcWebDemo)
 

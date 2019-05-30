@@ -2,21 +2,46 @@ version: '3'
 services:
   
   netcore-server:
-    build:
-      context: ./
-      dockerfile: ./Dockerfile
-    image: helloworld/grpcnetcoredemo:0.0.1
+    #build:
+      #context: ./
+      #dockerfile: ./Dockerfile
+    container_name: service-netcore1
+    hostname: service-netcore1
+    image: wilsonjw/grpcnetcoreserver:0.0.1
     ports:
       - "9090:9090"
+    networks:
+      main:
+        aliases:
+          - service-netcore1
   envoy:
-    build:
-      context: ./
-      dockerfile: ./envoy/Dockerfile
-    depends_on:
-      - netcore-server
-    image: helloworld/envoy
+    
+    container_name: envoy
+    hostname: envoy
+    image: envoyproxy/envoy:latest
+    volumes:
+      - evnoy/envoy.yaml:/etc/envoy/envoy.yaml
     ports:
       - "8080:8080"
-    links:
-      - netcore-server
-  
+    networks:
+      main:
+        aliases:
+          - envoy
+  envoy-tls:
+    
+    container_name: envoy-tls
+    hostname: envoy-tls
+    image: envoyproxy/envoy:latest
+    volumes:
+      - evnoy/envoy-tls.yaml:/etc/envoy/envoy.yaml
+      - evnoy/letsencrypt:/etc/letsencrypt
+    ports:
+      - "443:443"
+    networks:
+      main:
+        aliases:
+          - envoy-tls
+networks:
+  main:
+    external:
+      name: grpcweb_demo

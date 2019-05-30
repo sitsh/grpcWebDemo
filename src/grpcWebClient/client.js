@@ -19,7 +19,7 @@
 const {HelloRequest, HelloReply} = require('./helloworld_pb.js');
 const {GreeterClient} = require('./helloworld_grpc_web_pb.js');
 
-var client = new GreeterClient('http://111.231.144.245:8080',
+var client = new GreeterClient('https://grpc.wecail.com',
                                null, null);
 
 var request = new HelloRequest();

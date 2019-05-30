@@ -7,7 +7,7 @@ static_resources:
   listeners:
   - name: listener_0
     address:
-      socket_address: { address: 0.0.0.0, port_value: 8080 }
+      socket_address: { address: 0.0.0.0, port_value: 443 }
     filter_chains:
     - filters:
       - name: envoy.http_connection_manager
@@ -18,7 +18,8 @@ static_resources:
             name: local_route
             virtual_hosts:
             - name: service-netcore1
-              domains: ["*"]
+              domains:
+              - "grpc.wecail.com"
               routes:
               - match: { prefix: "/" }
                 route:
@@ -36,6 +37,13 @@ static_resources:
           - name: envoy.grpc_web
           - name: envoy.cors
           - name: envoy.router
+      tls_context:
+        common_tls_context:
+          tls_certificates:
+            - certificate_chain:
+                filename: "/etc/letsencrypt/grpc.wecail.com.crt"
+              private_key:
+                filename: "/etc/letsencrypt/grpc.wecail.com.key"
   clusters:
   - name: service-netcore1
     connect_timeout: 0.25s
